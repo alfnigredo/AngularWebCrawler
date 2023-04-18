@@ -1,4 +1,4 @@
-const version = "1.0.0";
+const version = "1.0.1";
 const puppeteer = require("puppeteer");
 const {execSync} = require('child_process');
 const fs = require('fs');
@@ -8,10 +8,10 @@ let levels = [];
 let browser, page;
 let index = 0;
 
-const mainUrl = 'https://www.sweet-tamy.com/';
+const mainUrl = 'https://www.alfnigredotattoos.com/';
 const waitTime = 5;
-const deepness = 1;
-const verbose = true;
+const deepness = 3;
+const verbose = false;
 const omitPrefix = 'admin/';
 const importanceMap = ["1.0", "0.9", "0.5", "0.2"];
 
@@ -71,7 +71,7 @@ function createXml(){
 	'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 	for(let i=0; i < index; i++){
 		xml += '<url>' +
-			'<loc>' + escape(urls[i]) + '</loc>' +
+			'<loc>' + urls[i] + '</loc>' +
 			'<lastmod>' + fecha.toISOString() + '</lastmod>' + 
 			'<priority>' + importanceMap[levels[i]] + '</priority>' +
 			'<changefreq>monthly</changefreq>' +
